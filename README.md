@@ -23,4 +23,11 @@ Then they are added to the travel itinerary and saved to local storage<br>
 When I refresh the page<br>
 Then the saved events persist<br>
 wireframe: <br><br>
+
+<br> <br>
+Entertainment API: <br>
+https://opentripmap.io/product
+<br>
+Weather API: <br>
+https://openweathermap.org/price
 ![image](https://user-images.githubusercontent.com/87109541/131759106-292435a8-bfd3-4835-b180-2220b7eaf453.png)
