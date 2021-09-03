@@ -59,3 +59,7 @@ $(function () {
     source: cityNames,
   });
 });
+
+$(function () {
+  $("#datepicker").datepicker();
+});
