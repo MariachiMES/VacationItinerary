@@ -1,5 +1,12 @@
+<?php
+  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg' ); // array of filenames
+
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,15 +16,23 @@
     rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 
-    
-    <link rel="stylesheet" href="style.css" />
-    <title>Vacation Itinerary</title>
-  </head>
 
+    <link rel="stylesheet" href = "./assets/css/foundation.css">
+    <link rel="stylesheet" href = "style.css">
+    <title>Vacation Itinerary</title>
+  </head><div class="top-bar"><ul class="dropdown menu">
+    <div class="top-bar-left"><li class="menu-text">FrankDavidCristobal</li></ul>
+
+    </div><div class="top-bar-right"></div>
+  </div>
+  </ul>
   <body>
-      <h1>Where To?</h1>
-    City: <input type="text" id="city-name" placeholder="Insert happy place here.."/>
-    <label for="State">State:</label>
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+      <div class = "description medium-8 small-12 large-8 cell">
+    City: <input type="text" id="city-name" placeholder="Name your happy place..."/>
+    <label class ="description" for="State">State:</label>
     <select name="State" id="state">
       <option>--</option>      
       <option>AL</option>
@@ -75,10 +90,22 @@
 
     </select>
     Date: <input type="text" id="datepicker" placeholder="It's now or never.."/>
-      <button>Go Time</button>
+      <button class =" hollow button primary">Go Time</button></div>
     </div>
+  </div>
+  </div>
+</div>    <div class="body-background"></div>
+<footer><div class="top-bar" id="bottom-bar"><ul class="dropdown menu">
+  <div class="top-bar-left" id="bottom-bar-left"><li class="menu-text" id="footer-text">CDF Dev Team</li></ul></footer>
+   
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
+    <script src="./assets/js/vendor/jquery.js"></script>
+    <script src="./assets/js/vendor/what-input.js"></script>
+    <script src="./assets/js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
