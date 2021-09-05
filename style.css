@@ -1,5 +1,5 @@
 * {
-  color: lightblue;
+  color: rgb(124, 182, 241);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
 }
@@ -12,6 +12,14 @@ body {
 .top-bar-left {
   background-color: grey;
 }
+#bottom-bar {
+  text-align: center;
+  background-color: darkblue;
+}
+#bottom-bar-left {
+  text-align: center;
+  background-color: darkblue;
+}
 .menu-text {
   font-size: 24;
 }
@@ -20,8 +28,20 @@ body {
   font-size: 30px;
 }
 .menu-text::after {
-  content: " | Travel Itinerary";
-  color: darkblue;
+  content: " | Travel Planner";
+  color: greenyellow;
+}
+#footer-text {
+  font-weight: lighter;
+  font-size: 15px;
+}
+#footer-text::before {
+  font-size: 15px;
+  content: "© ";
+}
+#footer-text::after {
+  content: " | 2021";
+  color: greenyellow;
 }
 #ui-datepicker-div {
   font-size: 21px;
@@ -38,9 +58,8 @@ body {
 .body-background {
   display: grid;
   place-items: center;
-  min-height: 100vh;
-  background-image: url(./assets/redsky.jpg);
+  min-height: 50vh;
+  background: url(./assets/bg-04.jpg);
   -webkit-background-size: cover;
   background-size: cover;
-  background-position: relative;
 }

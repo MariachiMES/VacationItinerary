@@ -1,3 +1,10 @@
+<?php
+  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg' ); // array of filenames
+
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
@@ -88,7 +95,8 @@
   </div>
   </div>
 </div>    <div class="body-background"></div>
-
+<footer><div class="top-bar" id="bottom-bar"><ul class="dropdown menu">
+  <div class="top-bar-left" id="bottom-bar-left"><li class="menu-text" id="footer-text">CDF Dev Team</li></ul></footer>
    
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
