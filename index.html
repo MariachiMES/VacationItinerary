@@ -1,30 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <title>Activity Planner</title>
-    </head>
-    <body>
-        <header>
-            <h1>This is our Header</h1>
-        </header>
+<?php
+  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg' ); // array of filenames
 
-        <section class = 'sect'>
-            <div class ='card'>
-                <form>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </form>
-            </div>
-            <div class='card weatherBlock'>
-                <h2>This</h2>
-            </div>
-            <div class='card'>
-                <h2>This</h2>
-            </div>
-        </section>
-        <script src=".//assets/js/script.js"></script>
-    </body>
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link
+    rel="stylesheet"
+    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+
+
+    <link rel="stylesheet" href = "./assets/css/foundation.css">
+    <link rel="stylesheet" href = "style.css">
+    <title>Vacation Itinerary</title>
+  </head>
+  <body>
+
+    <div class="top-bar"><ul class="dropdown menu">
+      <div class="top-bar-left"><li class="menu-text">FrankDavidCristobal</li></ul>
+  
+      </div><div class="top-bar-right"></div>
+    </div>
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+      <div class = "description medium-8 small-12 large-8 cell">
+    City: <input type="text" id="city-name" placeholder="Name your happy place..."/>
+    <label class ="description" for="State">State:</label>
+    <select name="State" id="state">
+      <option>--</option>      
+      <option>AL</option>
+      <option>AK</option>
+      <option>AZ</option>
+      <option>AR</option>
+      <option>CA</option>
+      <option>CO</option>
+      <option>CT</option>
+      <option>DE</option>
+      <option>DC</option>
+      <option>FL</option>
+      <option>GA</option>
+      <option>HI</option>
+      <option>ID</option>
+      <option>IL</option>
+      <option>IN</option>
+      <option>IA</option>
+      <option>KS</option>
+      <option>KY</option>
+      <option>LA</option>
+      <option>ME</option>
+      <option>MD</option>
+      <option>MA</option>
+      <option>MI</option>
+      <option>MN</option>
+      <option>MS</option>
+      <option>MO</option>
+      <option>MT</option>
+      <option>NE</option>
+      <option>NV</option>
+      <option>NH</option>
+      <option>NJ</option>
+      <option>NM</option>
+      <option>NY</option>
+      <option>NC</option>
+      <option>ND</option>
+      <option>OH</option>
+      <option>OK</option>
+      <option>OR</option>
+      <option>PA</option>
+      <option>RI</option>
+      <option>SC</option>
+      <option>SD</option>
+      <option>TN</option>
+      <option>TX</option>
+      <option>UT</option>
+      <option>VT</option>
+      <option>VA</option>
+      <option>WA</option>
+      <option>WV</option>
+      <option>WI</option>
+      <option>WY</option>
+      
+
+    </select>
+    Date: <input type="text" id="datepicker" placeholder="It's now or never.."/>
+      <button class =" hollow button primary">Go Time</button></div>
+    </div>
+  </div>
+  </div>
+
+
+
+</div> 
+
+<div class="body-background"></div>
+<footer><div class="top-bar" id="bottom-bar"><ul class="dropdown menu">
+  <div class="top-bar-left" id="bottom-bar-left"><li class="menu-text" id="footer-text">CDF Dev Team</li></ul></footer>
+   
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="script.js"></script>
+    <script src="./assets/js/vendor/jquery.js"></script>
+    <script src="./assets/js/vendor/what-input.js"></script>
+    <script src="./assets/js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
 </html>

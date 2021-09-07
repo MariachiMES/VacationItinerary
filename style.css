@@ -1,0 +1,65 @@
+* {
+  color: rgb(124, 182, 241);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+body {
+  display: block;
+}
+.top-bar {
+  background-color: grey;
+}
+.top-bar-left {
+  background-color: grey;
+}
+#bottom-bar {
+  text-align: center;
+  background-color: darkblue;
+}
+#bottom-bar-left {
+  text-align: center;
+  background-color: darkblue;
+}
+.menu-text {
+  font-size: 24;
+}
+.menu-text::before {
+  content: "♦";
+  font-size: 30px;
+}
+.menu-text::after {
+  content: " | Travel Planner";
+  color: greenyellow;
+}
+#footer-text {
+  font-weight: lighter;
+  font-size: 15px;
+}
+#footer-text::before {
+  font-size: 15px;
+  content: "© ";
+}
+#footer-text::after {
+  content: " | 2021";
+  color: greenyellow;
+}
+#ui-datepicker-div {
+  font-size: 21px;
+  background-color: lightblue;
+}
+.description {
+  font-size: 15px;
+  color: rgb(72, 72, 147);
+}
+#slides {
+  background-color: blue;
+  background-blend-mode: multiply;
+}
+.body-background {
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  background: url(./assets/bg-04.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+}
