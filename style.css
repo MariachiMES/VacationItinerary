@@ -60,7 +60,7 @@ body {
 
   min-height: 50vh;
 
-  background: url(./assets/bg-04.jpg);
+  background: url("./assets/bg-04.jpg");
   background-color: lightgoldenrodyellow;
   background-blend-mode: darken;
   -webkit-background-size: cover;
@@ -72,10 +72,11 @@ body {
   height: 50px;
   width: 250px;
   background-image: linear-gradient(
-    rgba(16, 255, 4, 0.4),
-    rgba(0, 170, 0, 0.5),
-    rgba(0, 97, 45, 0.6),
-    rgba(0, 0, 0, 0.7)
+    to right,
+    rgba(255, 4, 4, 0.4),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.6),
+    rgba(0, 255, 55, 0.7)
   );
 
   margin-bottom: 5px;
@@ -93,8 +94,26 @@ body {
   display: block;
   margin-bottom: 5px;
   color: black;
+  border: solid black 1px;
 }
 .all-cards {
   padding: 0px;
   width: 1000px;
+  border: solid black 1px;
+}
+#temp-0,
+#temp-1,
+#temp-2,
+#temp-3,
+#temp-4 {
+  margin-left: 5px;
+}
+#icon-0,
+#icon-1,
+#icon-2,
+#icon-3,
+#icon-4 {
+}
+.five-things-to-do {
+  margin-right: 800px;
 }
