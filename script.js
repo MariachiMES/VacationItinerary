@@ -66,27 +66,21 @@ $(function () {
 
 var apiKey = "5ae2e3f221c38a28845f05b61b840da041916e6dd029d0db7a8f4003";
 
-var repoList = document.querySelector("ul");
-var fetchButton = document.getElementById("hollow button primary");
-
-function getApi() {
-  // replace `octocat` with anyone else's GitHub username
-  var requestUrl = "https://api.opentripmap.com/0.1/en/places/";
-
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement("li");
-        listItem.textContent = data[i].html_url;
-        repoList.appendChild(listItem);
-      }
-    });
+function fetchCityInfo(lon, lat) {
+  fetch(
+    "https://api.opentripmap.com/0.1/en/places/radius?radius=10000&lon=" +
+      lon +
+      "&lat=" +
+      lat +
+      "&format=json&apikey=" +
+      apiKey
+  )
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
-
-fetchButton.addEventListener("click", getApi);
+/*var listItem = document.createElement("li");
+        listItem.textContent = data[i].html_url;
+        repoList.appendChild(listItem);*/
 
 /* PRACTICE!!!!!
  
