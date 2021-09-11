@@ -1,65 +1,62 @@
-$(function () {
-  var cityNames = [
-    "Los Angeles",
-    "San Francisco",
-    "San Diego",
-    "Oakland",
-    "Portland",
-    "Seattle",
-    "Las Vegas",
-    "Boise",
-    "Phoenix",
-    "Tucson",
-    "Salt Lake City",
-    "Denver",
-    "Albuquerque",
-    "Honolulu",
-    "Maui",
-    "Anchorage",
-    "Fairbanks",
-    "Cheyenne",
-    "Great Falls",
-    "Fargo",
-    "Sioux Falls",
-    "Omaha",
-    "Wichita",
-    "Oklahoma City",
-    "Dallas",
-    "Houston",
-    "San Antonio",
-    "New Orleans",
-    "Minneapolis",
-    "Milwaukee",
-    "Des Moines",
-    "St. Louis",
-    "Kansas City",
-    "Little Rock",
-    "Chicago",
-    "Indianapolis",
-    "Nashville",
-    "Louisville",
-    "Atlanta",
-    "Miami",
-    "Tampa",
-    "Orlando",
-    "Charlotte",
-    "Cleveland",
-    "Cincinnati",
-    "Detroit",
-    "Baltimore",
-    "Washington, D.C.",
-    "Philadelphia",
-    "Pittsburgh",
-    "New York City",
-    "Boston",
-    "Newark",
-    "Bristol",
-  ];
-  $("#city-name").autocomplete({
-    source: cityNames,
-  });
-});
+var displayDays = function () {
+  for (var i = 0; i < 5; i++) {
+    document.querySelector(`#day-${i}`).innerText =
+      moment().add(i, "days").format("dddd") + " ";
+  }
+};
 
-$(function () {
-  $("#datepicker").datepicker();
-});
+var weatherApiKey = "bc3a571ec5865457fb6b52d6cce74452";
+
+var fetchWeather = function (city) {
+  fetch(
+    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+      city +
+      "&units=imperial&appid=" +
+      weatherApiKey
+  )
+    .then((response) => response.json())
+    .then((data) => displayWeather(data));
+};
+
+var displayWeather = function (data) {
+  var lat = data.city.coord.lat;
+  var lon = data.city.coord.lon;
+
+  for (var i = 0; i < 5; i++) {
+    document.querySelector(`#temp-${i}`).innerText =
+      " Temp: " + data.list[i].main.temp + "°F";
+    document.querySelector(`#icon-${i}`).src =
+      "https://openweathermap.org/img/wn/" +
+      data.list[i].weather[0].icon +
+      ".png";
+    displayDays();
+    fetchCityInfo(lon, lat);
+  }
+};
+
+var weatherSearch = function () {
+  if (document.querySelector("#city-name").value != " ") {
+    fetchWeather(document.querySelector("#city-name").value);
+  }
+};
+
+var tripApi = "5ae2e3f221c38a28845f05b61b840da041916e6dd029d0db7a8f4003";
+
+function fetchCityInfo(lon, lat) {
+  fetch(
+    "https://api.opentripmap.com/0.1/en/places/radius?radius=10000&lon=" +
+      lon +
+      "&lat=" +
+      lat +
+      "&format=json&apikey=" +
+      tripApi
+  )
+    .then((response) => response.json())
+    .then((data) => displayPlaces(data));
+}
+var displayPlaces = function (data) {
+  for (var i = 0; i < 5; i++) {
+    document.querySelector(`#place-${i}`).innerText = data[i].name;
+  }
+};
+document.querySelector("#go-time").addEventListener("click", weatherSearch);
