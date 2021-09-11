@@ -1,64 +1,9 @@
-$(function () {
-  var cityNames = [
-    "Los Angeles",
-    "San Francisco",
-    "San Diego",
-    "Oakland",
-    "Portland",
-    "Seattle",
-    "Las Vegas",
-    "Boise",
-    "Phoenix",
-    "Tucson",
-    "Salt Lake City",
-    "Denver",
-    "Albuquerque",
-    "Honolulu",
-    "Maui",
-    "Anchorage",
-    "Fairbanks",
-    "Cheyenne",
-    "Great Falls",
-    "Fargo",
-    "Sioux Falls",
-    "Omaha",
-    "Wichita",
-    "Oklahoma City",
-    "Dallas",
-    "Houston",
-    "San Antonio",
-    "New Orleans",
-    "Minneapolis",
-    "Milwaukee",
-    "Des Moines",
-    "St. Louis",
-    "Kansas City",
-    "Little Rock",
-    "Chicago",
-    "Indianapolis",
-    "Nashville",
-    "Louisville",
-    "Atlanta",
-    "Miami",
-    "Tampa",
-    "Orlando",
-    "Charlotte",
-    "Cleveland",
-    "Cincinnati",
-    "Detroit",
-    "Baltimore",
-    "Washington, D.C.",
-    "Philadelphia",
-    "Pittsburgh",
-    "New York City",
-    "Boston",
-    "Newark",
-    "Bristol",
-  ];
-  $("#city-name").autocomplete({
-    source: cityNames,
-  });
-});
+var displayDays = function () {
+  for (var i = 0; i < 5; i++) {
+    document.querySelector(`#day-${i}`).innerText =
+      moment().add(i, "days").format("dddd") + " ";
+  }
+};
 
 $(function () {
   $("#datepicker").datepicker();
@@ -73,25 +18,14 @@ function fetchCityInfo(lon, lat) {
       "&lat=" +
       lat +
       "&format=json&apikey=" +
-      apiKey
+      tripApi
   )
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => displayPlaces(data));
 }
-/*var listItem = document.createElement("li");
-        listItem.textContent = data[i].html_url;
-        repoList.appendChild(listItem);*/
-
-/* PRACTICE!!!!!
- 
-
-var firstName = "Frank";
-var lastName = "Almaraz";
-
-var fullName = firstName + " " + lastName;
-console.log(fullName);
-
-console.log(fullName.toUpperCase());
-console.log(fullName.toLowerCase());
-
-//Methods: toUpperCase, toLowerCase, indexOf/*/
+var displayPlaces = function (data) {
+  for (var i = 0; i < 5; i++) {
+    document.querySelector(`#place-${i}`).innerText = data[i].name;
+  }
+};
+document.querySelector("#go-time").addEventListener("click", weatherSearch);

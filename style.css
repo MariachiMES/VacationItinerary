@@ -1,7 +1,6 @@
 * {
-  color: rgb(124, 182, 241);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 30px;
 }
 body {
   display: block;
@@ -21,10 +20,10 @@ body {
   background-color: darkblue;
 }
 .menu-text {
-  font-size: 24;
+  font-size: 24px;
 }
 .menu-text::before {
-  content: "♦";
+  content: "♦ ";
   font-size: 30px;
 }
 .menu-text::after {
@@ -33,10 +32,11 @@ body {
 }
 #footer-text {
   font-weight: lighter;
-  font-size: 15px;
+  font-size: 30px;
+  color: white;
 }
 #footer-text::before {
-  font-size: 15px;
+  font-size: 30px;
   content: "© ";
 }
 #footer-text::after {
@@ -56,12 +56,66 @@ body {
   background-blend-mode: multiply;
 }
 .body-background {
-  display: grid;
-  place-items: center;
+  display: flexbox;
+
   min-height: 50vh;
-  background: url(./assets/bg-04.jpg);
+
+  background: url("./assets/bg-04.jpg");
+  background-color: lightgoldenrodyellow;
+  background-blend-mode: darken;
   -webkit-background-size: cover;
   background-size: cover;
+  padding-left: 200px;
+}
+.forecast-card {
+  color: white;
+  height: 50px;
+  width: 250px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 4, 4, 0.4),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.6),
+    rgba(0, 255, 55, 0.7)
+  );
+
+  margin-bottom: 5px;
+  line-height: 40px;
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  text-shadow: black 1px 1px;
+  display: inline-flex;
+}
+.five-day-forecast {
+  width: 270px;
+  height: auto;
+  padding: 5px;
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+  border: solid black 1px;
+}
+.all-cards {
+  padding: 0px;
+  width: 1000px;
+  border: solid black 1px;
+}
+#temp-0,
+#temp-1,
+#temp-2,
+#temp-3,
+#temp-4 {
+  margin-left: 5px;
+}
+#icon-0,
+#icon-1,
+#icon-2,
+#icon-3,
+#icon-4 {
+}
+.five-things-to-do {
+  margin-right: 800px;
 }
 
 .col-8 {
