@@ -63,3 +63,41 @@ $(function () {
 $(function () {
   $("#datepicker").datepicker();
 });
+
+var apiKey = "5ae2e3f221c38a28845f05b61b840da041916e6dd029d0db7a8f4003";
+
+var repoList = document.querySelector("ul");
+var fetchButton = document.getElementById("hollow button primary");
+
+function getApi() {
+  // replace `octocat` with anyone else's GitHub username
+  var requestUrl = "https://api.opentripmap.com/0.1/en/places/";
+
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        var listItem = document.createElement("li");
+        listItem.textContent = data[i].html_url;
+        repoList.appendChild(listItem);
+      }
+    });
+}
+
+fetchButton.addEventListener("click", getApi);
+
+/* PRACTICE!!!!!
+ 
+
+var firstName = "Frank";
+var lastName = "Almaraz";
+
+var fullName = firstName + " " + lastName;
+console.log(fullName);
+
+console.log(fullName.toUpperCase());
+console.log(fullName.toLowerCase());
+
+//Methods: toUpperCase, toLowerCase, indexOf/*/
