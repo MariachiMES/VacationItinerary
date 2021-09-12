@@ -21,6 +21,7 @@ var fetchWeather = function (city) {
 var displayWeather = function (data) {
   var lat = data.city.coord.lat;
   var lon = data.city.coord.lon;
+  console.log(lat, lon);
 
   for (var i = 0; i < 5; i++) {
     document.querySelector(`#temp-${i}`).innerText =
@@ -30,8 +31,8 @@ var displayWeather = function (data) {
       data.list[i].weather[0].icon +
       ".png";
     displayDays();
-    fetchCityInfo(lon, lat);
   }
+  fetchCityInfo(lon, lat);
 };
 
 var weatherSearch = function () {
@@ -40,7 +41,10 @@ var weatherSearch = function () {
   }
 };
 
-var tripApi = "5ae2e3f221c38a28845f05b61b840da041916e6dd029d0db7a8f4003";
+var alternateTripApi =
+  "5ae2e3f221c38a28845f05b60ade91485de3f230f12f105b7c087b90";
+
+var tripApi = "5ae2e3f221c38a28845f05b627a67175ff5888a5fca032db41baf3b1";
 
 function fetchCityInfo(lon, lat) {
   fetch(
@@ -55,7 +59,8 @@ function fetchCityInfo(lon, lat) {
     .then((data) => displayPlaces(data));
 }
 var displayPlaces = function (data) {
-  for (var i = 0; i < 5; i++) {
+  console.log(data);
+  for (var i = 0; i < 10; i++) {
     document.querySelector(`#place-${i}`).innerText = data[i].name;
   }
 };
