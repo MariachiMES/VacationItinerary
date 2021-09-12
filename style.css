@@ -93,12 +93,11 @@ body {
   display: block;
 
   color: black;
-  border: solid pink 1px;
 }
 .all-cards {
   padding: 0px;
   width: 1000px;
-  border: solid red 1px;
+
   display: flex;
   justify-content: space-between;
 }
@@ -117,20 +116,26 @@ body {
 }
 .five-things-to-do {
   min-width: 300px;
-  border: solid lime 1px;
 }
 .activity-card {
-  border: solid fuchsia 1px;
   margin: 10px;
-  line-height: 15px;
-  font-size: 12px;
+  line-height: 20px;
+  font-size: 15px;
+  background-image: linear-gradient(
+    rgba(230, 230, 230, 0.5),
+    rgb(185, 185, 185, 0.4),
+    rgb(37, 37, 37, 0.3)
+  );
 }
 .itinerary-all {
   max-width: 300px;
   min-width: 300px;
-  border: solid rebeccapurple 1px;
 }
 .itinerary-card {
-  border: solid lightblue 1px;
+  background-image: linear-gradient(
+    rgba(230, 230, 230, 0.5),
+    rgb(185, 185, 185, 0.4),
+    rgb(37, 37, 37, 0.3)
+  );
   margin: 10px;
 }
