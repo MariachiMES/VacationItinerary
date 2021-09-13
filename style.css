@@ -139,3 +139,7 @@ body {
   );
   margin: 10px;
 }
+
+.draggable.dragging {
+  opacity: 0.5;
+}
