@@ -1,3 +1,49 @@
+var draggables = document.querySelectorAll(".activity-card");
+var containers = document.querySelectorAll(".five-things-to-do");
+
+draggables.forEach((draggable) => {
+  draggable.addEventListener("dragstart", () => {
+    draggable.classList.add("dragging");
+  });
+
+  draggable.addEventListener("dragend", () => {
+    draggable.classList.remove("dragging");
+  });
+});
+
+containers.forEach((container) => {
+  container.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    var afterElement = getDragAfterElement(container, e.clientY);
+    var draggable = document.querySelector(".dragging");
+    console.log(afterElement);
+    if (afterElement == null) {
+      container.appendChild(draggable);
+    } else {
+      container.insertBefore(draggable, afterElement);
+    }
+  });
+});
+
+function getDragAfterElement(container, y) {
+  var draggableElements = [
+    ...container.querySelectorAll(".draggable:not(.dragging)"),
+  ];
+
+  return draggableElements.reduce(
+    (closest, child) => {
+      var box = child.getBoundingClientRect();
+      var offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}
+
 var displayDays = function () {
   for (var i = 0; i < 5; i++) {
     document.querySelector(`#day-${i}`).innerText =
@@ -5,7 +51,9 @@ var displayDays = function () {
   }
 };
 
-var weatherApiKey = "bc3a571ec5865457fb6b52d6cce74452";
+$(function () {
+  $("#datepicker").datepicker();
+});
 
 var fetchWeather = function (city) {
   fetch(
@@ -45,6 +93,7 @@ var alternateTripApi =
   "5ae2e3f221c38a28845f05b60ade91485de3f230f12f105b7c087b90";
 
 var tripApi = "5ae2e3f221c38a28845f05b627a67175ff5888a5fca032db41baf3b1";
+var apiKey = "5ae2e3f221c38a28845f05b61b840da041916e6dd029d0db7a8f4003";
 
 function fetchCityInfo(lon, lat) {
   fetch(
