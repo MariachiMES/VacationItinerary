@@ -65,41 +65,41 @@ body {
   background-blend-mode: darken;
   -webkit-background-size: cover;
   background-size: cover;
-  padding-left: 200px;
+  padding-left: 175px;
 }
 .forecast-card {
   color: white;
   height: 50px;
   width: 250px;
   background-image: linear-gradient(
-    to right,
-    rgba(255, 4, 4, 0.4),
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.6),
-    rgba(0, 255, 55, 0.7)
+    rgba(230, 230, 230, 0.5),
+    rgb(185, 185, 185, 0.4),
+    rgb(37, 37, 37, 0.3)
   );
 
-  margin-bottom: 5px;
+  margin-bottom: 40px;
   line-height: 40px;
   border-radius: 2px;
   padding: 5px;
   font-weight: bold;
   text-shadow: black 1px 1px;
-  display: inline-flex;
+  justify-content: space-between;
+  display: flex;
 }
 .five-day-forecast {
   width: 270px;
   height: auto;
   padding: 5px;
   display: block;
-  margin-bottom: 5px;
+
   color: black;
-  border: solid black 1px;
 }
 .all-cards {
   padding: 0px;
   width: 1000px;
-  border: solid black 1px;
+
+  display: flex;
+  justify-content: space-between;
 }
 #temp-0,
 #temp-1,
@@ -115,5 +115,27 @@ body {
 #icon-4 {
 }
 .five-things-to-do {
-  margin-right: 800px;
+  min-width: 300px;
+}
+.activity-card {
+  margin: 10px;
+  line-height: 20px;
+  font-size: 15px;
+  background-image: linear-gradient(
+    rgba(230, 230, 230, 0.5),
+    rgb(185, 185, 185, 0.4),
+    rgb(37, 37, 37, 0.3)
+  );
+}
+.itinerary-all {
+  max-width: 300px;
+  min-width: 300px;
+}
+.itinerary-card {
+  background-image: linear-gradient(
+    rgba(230, 230, 230, 0.5),
+    rgb(185, 185, 185, 0.4),
+    rgb(37, 37, 37, 0.3)
+  );
+  margin: 10px;
 }
