@@ -5,7 +5,6 @@ draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () => {
     draggable.classList.add("dragging");
   });
-
   draggable.addEventListener("dragend", () => {
     draggable.classList.remove("dragging");
   });
@@ -16,7 +15,6 @@ containers.forEach((container) => {
     e.preventDefault();
     var afterElement = getDragAfterElement(container, e.clientY);
     var draggable = document.querySelector(".dragging");
-    console.log(afterElement);
     if (afterElement == null) {
       container.appendChild(draggable);
     } else {
@@ -51,9 +49,6 @@ var displayDays = function () {
   }
 };
 
-// $(function () {
-//   $("#datepicker").datepicker();
-// });
 var apiKey = "116296867a8e5f7080e808d86644669a";
 
 var fetchWeather = function (city) {
@@ -70,11 +65,10 @@ var fetchWeather = function (city) {
 var displayWeather = function (data) {
   var lat = data.city.coord.lat;
   var lon = data.city.coord.lon;
-  console.log(lat, lon);
 
   for (var i = 0; i < 5; i++) {
     document.querySelector(`#temp-${i}`).innerText =
-      " Temp: " + data.list[i].main.temp + "°F";
+      " Temp: " + Math.floor(data.list[i].main.temp) + "°F";
     document.querySelector(`#icon-${i}`).src =
       "https://openweathermap.org/img/wn/" +
       data.list[i].weather[0].icon +
@@ -85,7 +79,6 @@ var displayWeather = function (data) {
 };
 
 var weatherSearch = function () {
-  console.log("pressed");
   if (document.querySelector("#city-name").value != " ") {
     fetchWeather(document.querySelector("#city-name").value);
   }
@@ -98,7 +91,7 @@ var tripApi = "5ae2e3f221c38a28845f05b627a67175ff5888a5fca032db41baf3b1";
 
 function fetchCityInfo(lon, lat) {
   fetch(
-    "https://api.opentripmap.com/0.1/en/places/radius?radius=10000&lon=" +
+    "https://api.opentripmap.com/0.1/en/places/radius?radius=20000&lon=" +
       lon +
       "&lat=" +
       lat +
