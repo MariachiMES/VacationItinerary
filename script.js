@@ -3,7 +3,7 @@ var containers = document.querySelectorAll(".five-things-to-do");
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 13.6469502, lng: 100.4542911 },
+    center: { lat: 33.0860468, lng: -79.4266274 },
     zoom: 10,
   });
 }
@@ -60,7 +60,7 @@ var apiKey = "116296867a8e5f7080e808d86644669a";
 
 var fetchWeather = function (city) {
   fetch(
-    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
       city +
       "&units=imperial&appid=" +
       apiKey
