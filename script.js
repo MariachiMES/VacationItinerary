@@ -1,5 +1,12 @@
 var draggables = document.querySelectorAll(".activity-card");
 var containers = document.querySelectorAll(".five-things-to-do");
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 33.0860468, lng: -79.4266274 },
+    zoom: 10,
+  });
+}
 
 draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () => {
@@ -53,7 +60,7 @@ var apiKey = "116296867a8e5f7080e808d86644669a";
 
 var fetchWeather = function (city) {
   fetch(
-    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
       city +
       "&units=imperial&appid=" +
       apiKey
@@ -75,7 +82,9 @@ var displayWeather = function (data) {
       ".png";
     displayDays();
   }
+
   fetchCityInfo(lon, lat);
+  map.setCenter({ lat: lat, lng: lon });
 };
 
 var weatherSearch = function () {
@@ -108,3 +117,9 @@ var displayPlaces = function (data) {
 };
 
 document.querySelector("#go-time").addEventListener("click", weatherSearch);
+document
+  .querySelector(".something")
+  .addEventListener("dragend", function (event) {
+    console.log(event.target.textContent);
+    console.log("triggered");
+  });

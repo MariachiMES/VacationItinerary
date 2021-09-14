@@ -168,3 +168,6 @@ body {
   );
   text-align: center;
 }
+#map {
+  height: 250px;
+}
