@@ -56,11 +56,9 @@ body {
   background-blend-mode: multiply;
 }
 .body-background {
-  display: flexbox;
-
   min-height: 50vh;
 
-  background: url("./assets/bg-04.jpg");
+  background: url("./assets/Drone1.jpg");
   background-color: lightgoldenrodyellow;
   background-blend-mode: darken;
   -webkit-background-size: cover;
@@ -118,14 +116,18 @@ body {
   min-width: 300px;
 }
 .activity-card {
+  padding-left: 10px;
+  color: white;
+  text-shadow: black 1px 1px;
   margin: 10px;
-  line-height: 20px;
+  line-height: 30px;
   font-size: 15px;
   background-image: linear-gradient(
     rgba(230, 230, 230, 0.5),
     rgb(185, 185, 185, 0.4),
     rgb(37, 37, 37, 0.3)
   );
+  font-weight: bolder;
 }
 .itinerary-all {
   max-width: 300px;
@@ -141,7 +143,7 @@ body {
 }
 
 .draggable.dragging {
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 .col-8 {
@@ -151,4 +153,18 @@ body {
 
 .mb-3 {
   margin-bottom: 1rem;
+}
+.activity-card1 {
+  padding-left: 10px;
+  color: white;
+  text-shadow: black 1px 1px;
+  margin: 10px;
+  line-height: 30px;
+  font-size: 24px;
+  background-image: linear-gradient(
+    rgba(230, 230, 230, 0.9),
+    rgb(185, 185, 185, 0.8),
+    rgb(37, 37, 37, 0.7)
+  );
+  text-align: center;
 }
