@@ -7,13 +7,17 @@ function initMap() {
     zoom: 10,
   });
 }
-
+var saveTrips = [];
 draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () => {
     draggable.classList.add("dragging");
   });
-  draggable.addEventListener("dragend", () => {
+  draggable.addEventListener("dragend", (event) => {
     draggable.classList.remove("dragging");
+    saveTrips.push(event.target.textContent);
+    localStorage.setItem("saveTrips", saveTrips);
+    console.log(event.target.textContent + " hello");
+    console.log(saveTrips);
   });
 });
 
@@ -117,9 +121,33 @@ var displayPlaces = function (data) {
 };
 
 document.querySelector("#go-time").addEventListener("click", weatherSearch);
-document
-  .querySelector(".something")
-  .addEventListener("dragend", function (event) {
-    console.log(event.target.textContent);
-    console.log("triggered");
-  });
+var savedTrips = [];
+displayStorage = function (savedTrips) {
+  if (savedTrips !== "") {
+    var savedTrips = localStorage.getItem("saveTrips").split(",");
+  }
+  for (var i = 0; i < 6; i++) {
+    document.getElementById(`save-${i}`).textContent = savedTrips[i];
+  }
+};
+
+displayStorage(savedTrips);
+console.log(savedTrips);
+
+// var displayStorage = function (savedTrips) {
+//   if (savedTrips !== []) {
+
+//   }
+//   return;
+// displayStorage(savedTrips);
+
+// var saveTrip = [];
+// var saveTrips = function (event) {
+//   for (var i = 1; i < 6; i++) {
+//     saveTrip[i] = document.getElementById(`place-${i}`).textContent;
+//     localStorage.setItem(`place-${i}`, saveTrip[i]);
+//   }
+// };
+// target.document
+//   .querySelectorAll(`place-${i}`)
+//   .addEventListener("dragend", saveTrips);
