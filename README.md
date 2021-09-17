@@ -31,3 +31,4 @@ https://opentripmap.io/product
 Weather API: <br>
 https://openweathermap.org/price
 ![image](https://user-images.githubusercontent.com/87109541/131759106-292435a8-bfd3-4835-b180-2220b7eaf453.png)
+<img width="1270" alt="Screen Shot 2021-09-17 at 11 26 34 AM" src="https://user-images.githubusercontent.com/87109541/133822243-2c558c6b-ea38-440b-a7db-e3978ba51a2c.png">
